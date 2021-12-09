@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"
+  ></script>
+<!-- 리액트 돔은 리액트 엘리먼츠를 가져다 HTML로 렌더링을 한다. -->
+  <script>
+    const root = document.getElementById("root");
+    
+    const h3 = React.createElement(
+        //태그, porps, contents
+      "h3",
+      { //property object안에 Event Listner를 등록할 수 있다.
+        id: "title",
+        onMouseEnter: () => console.log("mouse enter"),
+      },
+      "Hello I am span"
+    );
+
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => console.log("im Clicked"),
+        style: {
+            backgroundColor: "tomato"
+        }
+      },
+      "click me"
+    );
+
+    const container = React.createElement("div", null, [h3, btn]); //component를 생성한 component
+    ReactDOM.render(container, root); //react element들을 root div에 보여줘라
+  </script>
+</html>
